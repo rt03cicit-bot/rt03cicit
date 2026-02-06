@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RT03 CICIT - Portal Informasi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <div class="logo">RT03</div>
+        <div>
+          <div class="title">RT03 CICIT</div>
+          <div class="subtitle">Portal Informasi Warga</div>
+        </div>
+      </div>
+
+      <button class="menuBtn" id="menuBtn" aria-label="Menu">☰</button>
+
+      <nav class="nav" id="nav">
+        <a href="#beranda">Beranda</a>
+        <a href="#pengumuman">Pengumuman</a>
+        <a href="#administrasi">Administrasi</a>
+        <a href="#umkm">UMKM</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="beranda" class="hero">
+      <div class="container">
+        <h1>Selamat Datang di Portal RT03</h1>
+        <p class="lead">Satu pintu untuk pengumuman, administrasi, dan informasi kegiatan warga.</p>
+        <div class="actions">
+          <a class="btn primary" href="#pengumuman">Lihat Pengumuman</a>
+          <a class="btn" href="#administrasi">Administrasi RT</a>
+        </div>
+
+        <div class="notice">
+          <strong>Catatan Privasi:</strong> Hindari menaruh data pribadi warga (NIK, alamat detail, no HP) di halaman publik. Gunakan tautan akses terbatas bila diperlukan.
+        </div>
+      </div>
+    </section>
+
+    <section id="pengumuman" class="section">
+      <div class="container">
+        <h2>Pengumuman</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Contoh Pengumuman</h3>
+            <p>Ganti dengan info terbaru RT03. Kamu bisa update isi ini kapan saja.</p>
+            <div class="meta">Terakhir update: <span id="lastUpdate">-</span></div>
+          </article>
+
+          <article class="card">
+            <h3>Link Penting</h3>
+            <ul class="list">
+              <li><a href="#" target="_blank" rel="noopener">Form Pendataan Warga (restricted)</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Grup WhatsApp / Kanal Informasi</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Dokumen AD/ART (PDF)</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="administrasi" class="section alt">
+      <div class="container">
+        <h2>Administrasi RT</h2>
+        <p>Taruh prosedur singkat dan tautan dokumen. Untuk dokumen sensitif, pakai Drive permission “Restricted / only shared people”.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Surat Pengantar</h3>
+            <ul class="list">
+              <li><a href="#" target="_blank" rel="noopener">Template Surat (Google Docs)</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Ajukan Permohonan (Google Form)</a></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Laporan Keuangan</h3>
+            <p>Saran: publikkan ringkasannya saja (total pemasukan/pengeluaran). Detail PDF khusus warga.</p>
+            <a class="btn small" href="#" target="_blank" rel="noopener">Ringkasan (Public)</a>
+            <a class="btn small" href="#" target="_blank" rel="noopener">Detail (Restricted)</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="umkm" class="section">
+      <div class="container">
+        <h2>UMKM RT03</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Contoh UMKM</h3>
+            <p>Nama usaha, kategori, jam buka, kontak.</p>
+            <div class="tags">
+              <span>Food</span><span>Jasa</span><span>Retail</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Daftarkan UMKM</h3>
+            <p>Gunakan Google Form untuk pendaftaran.</p>
+            <a class="btn small" href="#" target="_blank" rel="noopener">Form UMKM</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeri" class="section alt">
+      <div class="container">
+        <h2>Galeri Kegiatan</h2>
+        <p>Upload foto ke repo atau pakai link Google Photos/Drive (public). Kalau ada anak-anak, pastikan tidak ada data sensitif terlihat.</p>
+
+        <div class="gallery">
+          <div class="ph">Foto 1</div>
+          <div class="ph">Foto 2</div>
+          <div class="ph">Foto 3</div>
+          <div class="ph">Foto 4</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="section">
+      <div class="container">
+        <h2>Kontak</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Pengurus RT03</h3>
+            <ul class="list">
+              <li>Ketua RT: <em>(isi)</em></li>
+              <li>Sekretaris: <em>(isi)</em></li>
+              <li>Bendahara: <em>(isi)</em></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Channel Informasi</h3>
+            <ul class="list">
+              <li><a href="#" target="_blank" rel="noopener">WhatsApp Group</a></li>
+              <li><a href="#" target="_blank" rel="noopener">Instagram / Facebook</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© <span id="year"></span> RT03 CICIT • Dibuat dengan GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
