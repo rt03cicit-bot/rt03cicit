@@ -489,3 +489,9 @@ html, body { background: var(--bg) !important; color: var(--text) !important; }
   font-weight: 600;
   color: #1c1917;
 }
+
+.weatherTime{
+  font-weight: 600;
+  color: #334155; /* slate-700 */
+  opacity: 0.9;
+}
