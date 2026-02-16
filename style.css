@@ -319,3 +319,19 @@ code{
     flex-wrap: wrap;
   }
 }
+/* FORCE LIGHT MODE (final override) */
+html, body { background: var(--bg) !important; color: var(--text) !important; }
+
+.hero { background: var(--bg) !important; }
+
+.topbar {
+  background: rgba(248,250,252,0.92) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.nav a { color: var(--muted) !important; }
+.nav a:hover, .nav a.active { background: var(--surface) !important; color: var(--text) !important; border-color: var(--border) !important; }
+
+.btn { background: var(--surface) !important; color: var(--text) !important; border-color: var(--border) !important; }
+.btn-primary { background: var(--primary) !important; border-color: var(--primary) !important; color: #fff !important; }
+.btn-primary:hover { background: var(--primaryHover) !important; border-color: var(--primaryHover) !important; }
