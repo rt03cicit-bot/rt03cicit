@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UMKM Warga - RT03 CICIT</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .pageHead { padding: 26px 0 10px; }
+    .pageHead h1 { margin: 0; font-size: 34px; letter-spacing: -0.02em; }
+    .pageHead p { margin: 10px 0 0; }
+
+    .gridUmkm{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+      padding: 18px 0 34px;
+    }
+    @media (max-width: 980px){ .gridUmkm{ grid-template-columns:1fr; } }
+
+    :root{
+      --g1: rgba(255, 233, 173, .85);   /* warm yellow */
+      --g2: rgba(186, 230, 253, .45);   /* soft sky */
+      --g3: rgba(253, 230, 138, .35);   /* light amber */
+      --wBorder: rgba(148,163,184,.35);
+      --wBorderHover: rgba(245, 158, 11, .45);
+      --wGlow: rgba(245, 158, 11, .18);
+    }
+
+    .uCard{
+      background: var(--surface);
+      border: 1px solid var(--wBorder);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 1px 0 rgba(15,23,42,.02);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    /* Hover = bright gradient */
+    .uCard:hover{
+      transform: translateY(-2px);
+      border-color: var(--wBorderHover);
+      background:
+        radial-gradient(900px 260px at 10% 20%, var(--g1), transparent 60%),
+        radial-gradient(900px 260px at 90% 10%, var(--g2), transparent 60%),
+        radial-gradient(900px 260px at 70% 90%, var(--g3), transparent 65%),
+        var(--surface);
+      box-shadow:
+        0 12px 26px rgba(15,23,42,.08),
+        0 0 0 6px var(--wGlow);
+    }
+
+    .uTitleRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom: 10px;
+    }
+    .uIcon{
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      background: rgba(59,130,246,.08);
+      border: 1px solid rgba(148,163,184,.35);
+      font-size: 20px;
+    }
+    .uName{
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+
+    .uMeta{
+      margin: 10px 0 12px;
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 16px;
+    }
+    .uMeta b{ font-weight: 800; }
+
+    .uList{
+      margin: 12px 0 14px;
+      padding-left: 0;
+      list-style: none;
+      color: var(--text);
+    }
+    .uList li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin: 6px 0;
+    }
+    .uBadge{
+      width: 26px;
+      height: 26px;
+      border-radius: 9px;
+      background: rgba(16, 185, 129, .12);
+      border: 1px solid rgba(16, 185, 129, .25);
+      display:grid;
+      place-items:center;
+      font-weight: 900;
+      color: rgba(16, 185, 129, 1);
+      flex: 0 0 auto;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .waBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border: 0;
+      cursor: pointer;
+      text-decoration:none;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #25D366;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(37, 211, 102, .22);
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+    }
+    .waBtn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+      box-shadow: 0 14px 26px rgba(37, 211, 102, .28);
+    }
+
+    .waIcon{
+      width: 22px; height: 22px; display:inline-block;
+      background: #fff;
+      -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16.04 3C9.4 3 4 8.38 4 15.02c0 2.64.86 5.09 2.31 7.08L5 29l7.1-1.28a12 12 0 0 0 3.94.66h.02c6.64 0 12.04-5.38 12.04-12.02C28.1 8.38 22.68 3 16.04 3zm7.01 17.03c-.3.86-1.76 1.64-2.44 1.74-.61.09-1.38.13-2.23-.14-.52-.17-1.2-.39-2.07-.77-3.64-1.58-6.02-5.25-6.2-5.49-.18-.24-1.48-1.97-1.48-3.76 0-1.79.94-2.66 1.27-3.03.33-.37.72-.46.96-.46.24 0 .48 0 .7.01.22.01.5-.09.78.59.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.37-.16.73.21.36.95 1.56 2.03 2.52 1.39 1.24 2.56 1.63 2.92 1.81.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.73z"/></svg>') center / contain no-repeat;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16.04 3C9.4 3 4 8.38 4 15.02c0 2.64.86 5.09 2.31 7.08L5 29l7.1-1.28a12 12 0 0 0 3.94.66h.02c6.64 0 12.04-5.38 12.04-12.02C28.1 8.38 22.68 3 16.04 3zm7.01 17.03c-.3.86-1.76 1.64-2.44 1.74-.61.09-1.38.13-2.23-.14-.52-.17-1.2-.39-2.07-.77-3.64-1.58-6.02-5.25-6.2-5.49-.18-.24-1.48-1.97-1.48-3.76 0-1.79.94-2.66 1.27-3.03.33-.37.72-.46.96-.46.24 0 .48 0 .7.01.22.01.5-.09.78.59.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.37-.16.73.21.36.95 1.56 2.03 2.52 1.39 1.24 2.56 1.63 2.92 1.81.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.73z"/></svg>') center / contain no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="brand__logo">RT03</div>
+        <div class="brand__text">
+          <div class="brand__title">RT03 CICIT</div>
+          <div class="brand__sub">Portal Informasi Warga</div>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="index.html">Beranda</a>
+        <a href="index.html#administrasi">Administrasi RT</a>
+        <a href="laporan.html">Laporan Keuangan RT</a>
+        <a href="index.html#pengumuman">Pengumuman</a>
+        <a class="active" href="umkm.html">UMKM</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="pageHead">
+      <h1>UMKM Warga RT03</h1>
+      <p class="muted">Direktori UMKM warga. Klik tombol WhatsApp untuk menghubungi.</p>
+    </div>
+
+    <div class="hr"></div>
+
+    <section class="gridUmkm" aria-label="Daftar UMKM">
+      <!-- 1 -->
+      <article class="uCard">
+        <div class="uTitleRow">
+          <div class="uIcon">🩺</div>
+          <h2 class="uName">Rumah Bekam Sabila</h2>
+        </div>
+
+        <div class="uMeta">
+          <b>Kategori:</b> Jasa Kesehatan / Terapi<br>
+          Rumah Bekam Sabila menyediakan layanan terapi bekam (al-hijamah) untuk menjaga kesehatan dan kebugaran.
+        </div>
+
+        <ul class="uList">
+          <li><span class="uBadge">📍</span><div><b>Lokasi:</b> Perumahan Cibubur City</div></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="waBtn" target="_blank" rel="noopener"
+             href="https://wa.me/6281525930904?text=Assalamu%27alaikum%2C%20saya%20warga%20RT03%20ingin%20bertanya%20tentang%20Rumah%20Bekam%20Sabila.">
+            <span class="waIcon" aria-hidden="true"></span>
+            Chat via WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="uCard">
+        <div class="uTitleRow">
+          <div class="uIcon">🏡</div>
+          <h2 class="uName">CARIHUNIAN.COM</h2>
+        </div>
+
+        <div class="uMeta">
+          <b>Kategori:</b> Jasa Properti &amp; Renovasi<br>
+          Melayani renovasi rumah, jual beli properti, dan pengeboran air tanah.
+        </div>
+
+        <ul class="uList">
+          <li><span class="uBadge">📍</span><div><b>Lokasi:</b> Perumahan Cibubur City</div></li>
+          <li><span class="uBadge">🌐</span><div><b>Website:</b> carihunian.com</div></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="waBtn" target="_blank" rel="noopener"
+             href="https://wa.me/6281387452281?text=Halo%2C%20saya%20warga%20RT03%20ingin%20bertanya%20tentang%20layanan%20CARIHUNIAN.COM.">
+            <span class="waIcon" aria-hidden="true"></span>
+            Chat via WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="uCard">
+        <div class="uTitleRow">
+          <div class="uIcon">🍲</div>
+          <h2 class="uName">DAPOER UNI ROSI</h2>
+        </div>
+
+        <div class="uMeta">
+          <b>Kategori:</b> Kuliner<br>
+          Menjual sarapan dan makanan khas Padang dengan cita rasa autentik.
+        </div>
+
+        <ul class="uList">
+          <li><span class="uBadge">📍</span><div><b>Alamat:</b> Perumahan Cibubur City</div></li>
+          <li><span class="uBadge">📸</span><div><b>Instagram:</b> @dapoer_uni_rosi</div></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="waBtn" target="_blank" rel="noopener"
+             href="https://wa.me/6281266228200?text=Halo%2C%20saya%20warga%20RT03%20ingin%20pesan%20menu%20DAPOER%20UNI%20ROSI.">
+            <span class="waIcon" aria-hidden="true"></span>
+            Chat via WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="uCard">
+        <div class="uTitleRow">
+          <div class="uIcon">🎥</div>
+          <h2 class="uName">EMMAMON10 DIGITAL CREATOR</h2>
+        </div>
+
+        <div class="uMeta">
+          <b>Kategori:</b> Jasa Kreatif &amp; Digital<br>
+          KOL/endorse, review produk, video editing (mobile), voice over, publikasi event, dan social media planning.
+        </div>
+
+        <ul class="uList">
+          <li><span class="uBadge">📍</span><div><b>Alamat:</b> Perumahan Cibubur City</div></li>
+          <li><span class="uBadge">📸</span><div><b>Instagram:</b> @emmamon10</div></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="waBtn" target="_blank" rel="noopener"
+             href="https://wa.me/6281288152250?text=Halo%2C%20saya%20warga%20RT03%20ingin%20bertanya%20tentang%20jasa%20EMMAMON10%20Digital%20Creator.">
+            <span class="waIcon" aria-hidden="true"></span>
+            Chat via WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="uCard">
+        <div class="uTitleRow">
+          <div class="uIcon">🛒</div>
+          <h2 class="uName">SAMUEL JAYA</h2>
+        </div>
+
+        <div class="uMeta">
+          <b>Kategori:</b> Barang / Produk<br>
+          Menjual kebutuhan rumah tangga seperti sembako, air mineral, dan elpiji. Siap antar area sekitar Cibubur City.
+        </div>
+
+        <ul class="uList">
+          <li><span class="uBadge">📍</span><div><b>Alamat:</b> Perumahan Cibubur City</div></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="waBtn" target="_blank" rel="noopener"
+             href="https://wa.me/6281319311229?text=Halo%2C%20saya%20warga%20RT03%20ingin%20pesan%20barang%20dari%20Samuel%20Jaya.">
+            <span class="waIcon" aria-hidden="true"></span>
+            Chat via WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="uCard">
+        <div class="uTitleRow">
+          <div class="uIcon">🍞</div>
+          <h2 class="uName">NUGATO</h2>
+        </div>
+
+        <div class="uMeta">
+          <b>Kategori:</b> Kuliner<br>
+          Roti Moka Nugat dengan cita rasa khas dan lembut. Cocok untuk sarapan atau camilan keluarga.
+        </div>
+
+        <ul class="uList">
+          <li><span class="uBadge">📍</span><div><b>Alamat:</b> Perumahan Cibubur City</div></li>
+          <li><span class="uBadge">📸</span><div><b>Instagram:</b> @nugato</div></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="waBtn" target="_blank" rel="noopener"
+             href="https://wa.me/628111331339?text=Halo%2C%20saya%20warga%20RT03%20ingin%20pesan%20produk%20NUGATO.">
+            <span class="waIcon" aria-hidden="true"></span>
+            Chat via WhatsApp
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
