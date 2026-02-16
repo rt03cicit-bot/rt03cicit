@@ -1,9 +1,20 @@
-const year = document.getElementById("year");
-year.textContent = new Date().getFullYear();
+// Footer year
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-const lastUpdate = document.getElementById("lastUpdate");
-lastUpdate.textContent = new Date().toLocaleDateString("id-ID", { day:"2-digit", month:"short", year:"numeric" });
+// Last update (for sample announcement)
+const lastUpdateEl = document.getElementById("lastUpdate");
+if (lastUpdateEl) {
+  lastUpdateEl.textContent = new Date().toLocaleDateString("id-ID", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+}
 
-const menuBtn = document.getElementById("menuBtn");
+// Mobile nav toggle
+const navBtn = document.getElementById("navbtn");
 const nav = document.getElementById("nav");
-menuBtn?.addEventListener("click", () => nav.classList.toggle("open"));
+if (navBtn && nav) {
+  navBtn.addEventListener("click", () => nav.classList.toggle("open"));
+}
