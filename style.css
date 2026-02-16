@@ -824,3 +824,60 @@ html, body { background: var(--bg) !important; color: var(--text) !important; }
   margin-top: 2px;
   color: var(--text);
 }
+
+/* ===== Footer Reusable ===== */
+.siteFooter{
+  padding: 26px 0 40px;
+  background: #f7f0e6; /* warm beige */
+  border-top: 1px solid rgba(15,23,42,.08);
+}
+
+.footerInner{ display: block; }
+
+.footerCard{
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 18px;
+  padding: 26px 22px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(15,23,42,.06);
+}
+
+.footerTop{
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.footerPhone{
+  font-size: 20px;
+  color: var(--text, #0f172a);
+}
+
+.footerEmoji{ margin-right: 6px; }
+
+.footerText{
+  font-size: 18px;
+  color: var(--text, #0f172a);
+}
+
+.footerIg{
+  display: inline-flex;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.igIcon{
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15,23,42,.10);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.footerIg:hover .igIcon{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(15,23,42,.14);
+}
