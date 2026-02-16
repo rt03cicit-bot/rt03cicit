@@ -658,3 +658,34 @@ html, body { background: var(--bg) !important; color: var(--text) !important; }
 .panel:hover{
   background: #E9F0FF;
 }
+
+/* === Pengurus: warm yellow cards + hover === */
+:root{
+  /* warm yellow lembut (kalem, tidak norak) */
+  --cardWarm: #FFF7D6;       /* background card */
+  --cardWarmHover: #FFF1BF;  /* saat hover */
+  --cardWarmBorder: #F3E3A2; /* border */
+}
+
+/* pastikan selector ini sama dengan card pengurus kamu */
+.pCard{
+  background: var(--cardWarm);
+  border: 1px solid var(--cardWarmBorder);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .06);
+}
+
+.pCard:hover{
+  transform: translateY(-4px);
+  background: var(--cardWarmHover);
+  border-color: #E9D785;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .14);
+}
+
+/* optional: hover pada foto biar lebih hidup */
+.pCard .pPhoto img{
+  transition: transform .25s ease;
+}
+.pCard:hover .pPhoto img{
+  transform: scale(1.03);
+}
