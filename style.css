@@ -648,3 +648,13 @@ html, body { background: var(--bg) !important; color: var(--text) !important; }
   background: var(--border);
   margin-top: 22px;
 }
+
+/* Soft panel tint (recommended) */
+.panel{
+  background: #F1F5FF;
+  border-color: #DCE7FF;
+}
+
+.panel:hover{
+  background: #E9F0FF;
+}
