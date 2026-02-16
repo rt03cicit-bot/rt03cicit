@@ -18,11 +18,13 @@ const nav = document.getElementById("nav");
 if (navBtn && nav) {
   navBtn.addEventListener("click", () => nav.classList.toggle("open"));
 }
-// ===== Hero Carousel (Auto-slide 3 detik) =====
+// ===== Hero Carousel (Auto-slide + Prev/Next) =====
 (function initHeroCarousel(){
   const carousel = document.getElementById("heroCarousel");
   const track = document.getElementById("heroTrack");
   const dotsWrap = document.getElementById("heroDots");
+  const prevBtn = document.getElementById("heroPrev");
+  const nextBtn = document.getElementById("heroNext");
   if (!carousel || !track || !dotsWrap) return;
 
   const slides = Array.from(track.children);
@@ -32,7 +34,8 @@ if (navBtn && nav) {
   let timer = null;
   const intervalMs = 3000;
 
-  // build dots
+  // build dots (reset dulu biar gak dobel)
+  dotsWrap.innerHTML = "";
   slides.forEach((_, i) => {
     const d = document.createElement("button");
     d.type = "button";
@@ -55,25 +58,18 @@ if (navBtn && nav) {
     if (userAction) restart();
   }
 
-  function next(){
-    goTo(index + 1);
-  }
+  function next(userAction=false){ goTo(index + 1, userAction); }
+  function prev(userAction=false){ goTo(index - 1, userAction); }
 
-  function start(){
-    timer = setInterval(next, intervalMs);
-  }
+  function start(){ timer = setInterval(() => next(false), intervalMs); }
+  function stop(){ if (timer) clearInterval(timer); timer = null; }
+  function restart(){ stop(); start(); }
 
-  function stop(){
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
+  // buttons
+  if (prevBtn) prevBtn.addEventListener("click", () => prev(true));
+  if (nextBtn) nextBtn.addEventListener("click", () => next(true));
 
-  function restart(){
-    stop();
-    start();
-  }
-
-  // pause on hover (desktop)
+  // pause on hover
   carousel.addEventListener("mouseenter", stop);
   carousel.addEventListener("mouseleave", start);
 
@@ -81,6 +77,7 @@ if (navBtn && nav) {
   render();
   start();
 })();
+
 
 // ===== Weather: Cibubur (Open-Meteo, no API key) + timestamp WIB =====
 (function initWeatherCibubur(){
