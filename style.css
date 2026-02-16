@@ -689,3 +689,41 @@ html, body { background: var(--bg) !important; color: var(--text) !important; }
 .pCard:hover .pPhoto img{
   transform: scale(1.03);
 }
+
+/* === Pengurus: warm-yellow muncul hanya saat hover === */
+:root{
+  --cardWarm: #FFF7D6;
+  --cardWarmBorder: #F3E3A2;
+}
+
+/* default (normal) */
+.pCard{
+  background: var(--surface);        /* tetap putih */
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .06);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+/* hover di CARD (termasuk saat mouse di fotonya) */
+.pCard:hover{
+  background: var(--cardWarm);
+  border-color: var(--cardWarmBorder);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .14);
+}
+
+/* optional: efek foto saat hover */
+.pCard .pPhoto img{
+  transition: transform .25s ease;
+}
+.pCard:hover .pPhoto img{
+  transform: scale(1.03);
+}
+
+/* kalau kamu mau STRICT: hanya saat hover di FOTO (bukan di area teks) */
+.pCard:has(.pPhoto:hover){
+  background: var(--cardWarm);
+  border-color: var(--cardWarmBorder);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .14);
+}
