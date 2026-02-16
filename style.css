@@ -335,3 +335,90 @@ html, body { background: var(--bg) !important; color: var(--text) !important; }
 .btn { background: var(--surface) !important; color: var(--text) !important; border-color: var(--border) !important; }
 .btn-primary { background: var(--primary) !important; border-color: var(--primary) !important; color: #fff !important; }
 .btn-primary:hover { background: var(--primaryHover) !important; border-color: var(--primaryHover) !important; }
+
+/*Tambahan CSS (WAJIB) - Laporan Keuangan */
+
+/* ===== Laporan Page ===== */
+.reportBar{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:14px 0 10px;
+}
+.reportBar__label{
+  min-width:90px;
+  font-weight:700;
+}
+.reportBar__buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.chip{
+  border:1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding:8px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:13px;
+}
+.chip:hover{
+  border-color:#cbd5e1;
+}
+.chip--active{
+  background: var(--primary);
+  border-color: var(--primary);
+  color:#fff;
+}
+
+.reportMeta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 0 16px;
+}
+.reportMeta__actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* PDF viewer */
+.pdfWrap{
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  background: var(--surface);
+}
+.pdfFrame{
+  width:100%;
+  height: 82vh;
+  border:0;
+  display:block;
+  background: #fff;
+}
+
+.pdfFallback{
+  border-top:1px solid var(--border);
+  padding:12px 14px;
+  background: var(--highlight);
+}
+.pdfFallback__title{
+  font-weight:700;
+  margin-bottom:4px;
+  color:#1c1917;
+}
+.pdfFallback__desc{
+  color:#1c1917;
+}
+
+@media (max-width: 820px){
+  .reportBar{ flex-direction:column; }
+  .reportBar__label{ min-width:auto; }
+  .reportMeta{ flex-direction:column; align-items:flex-start; }
+  .pdfFrame{ height: 70vh; }
+}
