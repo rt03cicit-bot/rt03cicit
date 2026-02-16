@@ -537,3 +537,114 @@ html, body { background: var(--bg) !important; color: var(--text) !important; }
     font-size: 24px;
   }
 }
+
+/* ===== 3-column panels (Home) ===== */
+.triGrid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+@media (max-width: 980px){
+  .triGrid{ grid-template-columns: 1fr; }
+}
+
+.panel{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.panel h3{
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  color: var(--text);
+}
+
+.panel .muted{
+  color: var(--muted);
+  margin: 0 0 12px 0;
+}
+
+.linkList{
+  margin: 0;
+  padding-left: 18px;
+}
+.linkList li{ margin: 8px 0; }
+.linkList a{
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.linkList a:hover{ color: var(--primaryHover); }
+
+.panelActions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* doc cards */
+.docCards{
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+.docCard{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  text-decoration: none;
+}
+.docCard:hover{
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 22px rgba(15,23,42,0.08);
+}
+.docIcon{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+.docTitle{
+  font-weight: 800;
+  color: var(--text);
+}
+.docSub{
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* small info rows */
+.miniInfo{
+  margin-top: 10px;
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+.miniRow{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+}
+.miniLabel{ color: var(--muted); }
+.miniValue{ color: var(--text); font-weight: 700; }
+
+/* horizontal divider */
+.hr{
+  height: 1px;
+  background: var(--border);
+  margin-top: 22px;
+}
