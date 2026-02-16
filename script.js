@@ -82,9 +82,10 @@ if (navBtn && nav) {
   start();
 })();
 
-// ===== Weather: Cibubur (Open-Meteo, no API key) =====
+// ===== Weather: Cibubur (Open-Meteo, no API key) + timestamp WIB =====
 (function initWeatherCibubur(){
   const el = document.getElementById("weatherText");
+  const timeEl = document.getElementById("weatherTime");
   if (!el) return;
 
   // Koordinat kira-kira Cibubur
@@ -94,21 +95,30 @@ if (navBtn && nav) {
   const url =
     `https://api.open-meteo.com/v1/forecast` +
     `?latitude=${lat}&longitude=${lon}` +
-    `&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code` +
+    `&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,time` +
     `&daily=temperature_2m_max,temperature_2m_min` +
     `&timezone=Asia%2FJakarta`;
 
   function codeToText(code){
-    // mapping ringkas (cukup untuk portal warga)
     if (code === 0) return "Cerah";
     if ([1,2,3].includes(code)) return "Berawan";
     if ([45,48].includes(code)) return "Berkabut";
     if ([51,53,55,56,57].includes(code)) return "Gerimis";
     if ([61,63,65,66,67].includes(code)) return "Hujan";
-    if ([71,73,75,77].includes(code)) return "Salju";
     if ([80,81,82].includes(code)) return "Hujan (lokal)";
     if ([95,96,99].includes(code)) return "Badai petir";
     return "Cuaca berubah-ubah";
+  }
+
+  function fmtWIB(iso){
+    // iso contoh: "2026-02-16T14:05"
+    if (!iso) return "";
+    const d = new Date(iso);
+    // Karena timezone sudah Asia/Jakarta dari API, parsing ini biasanya aman.
+    // Tapi untuk jaga-jaga, format hanya jam-menit.
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    return `${hh}:${mm} WIB`;
   }
 
   fetch(url)
@@ -124,11 +134,18 @@ if (navBtn && nav) {
 
       const max = daily?.temperature_2m_max?.[0] != null ? Math.round(daily.temperature_2m_max[0]) : null;
       const min = daily?.temperature_2m_min?.[0] != null ? Math.round(daily.temperature_2m_min[0]) : null;
-
       const range = (max != null && min != null) ? ` • Hari ini ${min}–${max}°C` : "";
+
       el.textContent = `${desc} • ${t}°C (terasa ${feels}°C) • Angin ${wind} km/jam${range}`;
+
+      if (timeEl) {
+        const ts = fmtWIB(cur.time);
+        timeEl.textContent = ts ? `• Update ${ts}` : "";
+      }
     })
     .catch(() => {
       el.textContent = "Tidak dapat memuat data cuaca saat ini. Silakan coba lagi nanti.";
+      if (timeEl) timeEl.textContent = "";
     });
 })();
+
