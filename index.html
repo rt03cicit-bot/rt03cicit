@@ -88,13 +88,19 @@
 
     <div class="divider"></div>
 
-    <!-- ADMINISTRASI RT -->
-    <section id="administrasi" class="section">
-      <div class="container">
-        <h2 class="section__title">Administrasi RT</h2>
-        <p class="section__desc">
-          Silakan gunakan tautan berikut sesuai kebutuhan.
-        </p>
+<!-- INFORMASI & ADMINISTRASI (3 KOLOM) -->
+<section id="administrasi" class="section">
+  <div class="container">
+    <h2 class="section__title">Informasi & Administrasi</h2>
+    <p class="section__desc">
+      Akses cepat untuk layanan RT, dokumen AD/ART, dan informasi kepengurusan.
+    </p>
+
+    <div class="triGrid">
+      <!-- 1) Administrasi RT -->
+      <div class="panel">
+        <h3 class="panel__title">Administrasi RT</h3>
+        <p class="panel__desc">Silakan gunakan tautan berikut sesuai kebutuhan.</p>
 
         <ul class="bullets">
           <li>
@@ -128,9 +134,55 @@
           <a class="btn btn-primary" href="laporan.html">Buka Laporan Keuangan RT</a>
         </div>
       </div>
-    </section>
 
-    <div class="divider"></div>
+      <!-- 2) AD/ART -->
+      <div class="panel">
+        <h3 class="panel__title">AD / ART RT03</h3>
+        <p class="panel__desc">Dokumen Anggaran Dasar &amp; Anggaran Rumah Tangga (PDF).</p>
+
+        <div class="docCards">
+          <a class="docCard" href="asset/angdasar.pdf" target="_blank" rel="noopener">
+            <div class="docIcon">PDF</div>
+            <div class="docMeta">
+              <div class="docTitle">Anggaran Dasar (AD)</div>
+              <div class="docSub">Buka / baca dokumen</div>
+            </div>
+          </a>
+
+          <a class="docCard" href="asset/angrt.pdf" target="_blank" rel="noopener">
+            <div class="docIcon">PDF</div>
+            <div class="docMeta">
+              <div class="docTitle">Anggaran Rumah Tangga (ART)</div>
+              <div class="docSub">Buka / baca dokumen</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn btn-outline" href="asset/angdasar.pdf" download>Unduh AD</a>
+          <a class="btn btn-outline" href="asset/angrt.pdf" download>Unduh ART</a>
+        </div>
+      </div>
+
+      <!-- 3) Susunan Pengurus -->
+      <div class="panel">
+        <h3 class="panel__title">Susunan Pengurus</h3>
+        <p class="panel__desc">Struktur pengurus RT03 (Ketua, Sekretaris, Bendahara, Seksi, dll.).</p>
+
+        <ul class="bullets">
+          <li><span class="muted">Lihat daftar lengkap di halaman khusus.</span></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="btn btn-primary" href="pengurus.html">Lihat Susunan Pengurus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 
     <!-- PENGUMUMAN -->
     <section id="pengumuman" class="section">
