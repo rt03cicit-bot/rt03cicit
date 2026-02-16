@@ -1,1 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Laporan Keuangan RT - RT03 CICIT</title>
+
+  <!-- Open Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="RT03 CICIT">
+        <div class="brand__logo">RT03</div>
+        <div class="brand__text">
+          <div class="brand__title">RT03 CICIT</div>
+          <div class="brand__subtitle">Portal Informasi Warga</div>
+        </div>
+      </a>
+
+      <button class="navbtn" id="navbtn" aria-label="Buka menu">☰</button>
+
+      <nav class="nav" id="nav">
+        <a href="index.html#beranda">Beranda</a>
+        <a href="index.html#administrasi">Administrasi RT</a>
+        <a class="active" href="laporan.html">Laporan Keuangan RT</a>
+        <a href="index.html#pengumuman">Pengumuman</a>
+        <a href="index.html#umkm">UMKM</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page__title">Laporan Keuangan RT</h1>
+        <p class="page__desc">
+          Halaman ini untuk publikasi ringkasan dan tautan dokumen laporan kas RT.
+          Silakan upload file PDF/PNG ke folder <code>/assets</code> lalu update tautannya di bawah.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2 class="section__title">Ringkasan (Public)</h2>
+        <p class="section__desc">
+          Isi ringkasan per bulan/per kategori di sini (tanpa data pribadi). Bisa berupa tabel ringkas atau link ke file ringkasan.
+        </p>
+
+        <ul class="bullets">
+          <li>
+            <a class="link" href="#" target="_blank" rel="noopener">
+              Ringkasan Kas RT - (contoh) Januari 2026 (PDF/PNG)
+            </a>
+          </li>
+          <li>
+            <a class="link" href="#" target="_blank" rel="noopener">
+              Ringkasan Kas RT - (contoh) Februari 2026 (PDF/PNG)
+            </a>
+          </li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h2 class="section__title">Rincian (Warga)</h2>
+        <p class="section__desc">
+          Jika kamu ingin “semi-restricted”, taruh rincian di Google Drive dengan “Anyone with the link”.
+          Kalau ditaruh di repo publik, maka tetap publik (siapa pun bisa akses kalau menemukan link).
+        </p>
+
+        <ul class="bullets">
+          <li>
+            <a class="link" href="#" target="_blank" rel="noopener">
+              Rincian Pengeluaran Operasional RT (contoh) Januari 2026
+            </a>
+          </li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="btn btn-primary" href="index.html">Kembali ke Beranda</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> RT03 CICIT • Laporan Keuangan</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
