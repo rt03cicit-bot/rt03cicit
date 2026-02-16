@@ -10,7 +10,77 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .pageHead { padding: 26px 0 10px; }
+    .pageHead h1 { margin: 0; font-size: 34px; letter-spacing: -0.02em; }
+    .pageHead p { margin: 10px 0 0; }
+
+    .gridPeople{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      padding: 18px 0 34px;
+    }
+    @media (max-width: 980px){ .gridPeople{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 640px){ .gridPeople{ grid-template-columns:1fr; } }
+
+    .pCard{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 0 rgba(15,23,42,.02);
+    }
+    .pPhoto{
+      width:100%;
+      height: 220px;
+      background: #EAF0FF;
+      overflow:hidden;
+    }
+    .pPhoto img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      object-position: center top;
+      display:block;
+    }
+    .pBody{ padding: 16px 16px 18px; }
+    .pRole{
+      margin: 0 0 10px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .pName{
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .pMeta{
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .pMeta span{ white-space: nowrap; }
+
+    .noteMask{
+      margin-top: 12px;
+      background: var(--highlight);
+      border: 1px solid rgba(148,163,184,.45);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+  </style>
 </head>
+
 <body>
   <header class="header">
     <div class="container nav">
@@ -32,16 +102,103 @@
     </div>
   </header>
 
-  <main class="container" style="padding:28px 0;">
-    <h1>Susunan Pengurus RT03</h1>
-    <p class="muted">Halaman ini akan berisi struktur kepengurusan (Ketua, Sekretaris, Bendahara, Seksi, dll.).</p>
+  <main class="container">
+    <div class="pageHead">
+      <h1>Susunan Pengurus RT03</h1>
+      <p class="muted">
+        Informasi kontak ditampilkan dengan <strong>masking</strong> untuk menjaga privasi.
+      </p>
+      <div class="noteMask">
+        Catatan: Nomor HP dan detail rumah disamarkan. Jika perlu kontak lengkap, silakan gunakan kanal resmi RT.
+      </div>
+    </div>
 
     <div class="hr"></div>
 
-    <div class="panel" style="margin-top:18px;">
-      <h3>Konten akan diisi</h3>
-      <p class="muted">Silakan kirim daftar nama/jabatan (atau format yang kamu mau), nanti aku susun rapi.</p>
-    </div>
+    <section id="grid" class="gridPeople" aria-label="Daftar pengurus RT03"></section>
   </main>
+
+  <script>
+    // ================= DATA =================
+    // Foto: asset/1.jpg .. asset/15.jpg (sesuaikan ekstensi jika file kamu .JPG)
+    const PENGURUS = [
+      { img: "asset/1.jpg",  role: "Ketua",                     name: "MARULOH",         block: "Blok C2 No.8",    phone: "0813-8574-8035" },
+      { img: "asset/2.jpg",  role: "Wakil",                     name: "WAWAN",           block: "Blok C6 No.20",   phone: "0813-1510-9486" },
+      { img: "asset/3.jpg",  role: "Sekretaris",                name: "RICKY",           block: "Blok C10 No.19",  phone: "0812-9085-2722" },
+      { img: "asset/4.jpg",  role: "Bendahara",                 name: "DEGA S HARTONO",   block: "Blok C11 No.08",  phone: "0813-8075-5710" },
+      { img: "asset/5.jpg",  role: "Bendahara 2",               name: "IBU KOES",         block: "Blok C2 No.10",   phone: "0812-1242-6119" },
+      { img: "asset/6.jpg",  role: "Seksi Lingkungan",          name: "LUTFI",           block: "Blok C6 No.16",   phone: "0812-1223-1919" },
+      { img: "asset/7.jpg",  role: "Seksi Kependudukan",        name: "WANDA",           block: "Blok C No.17",    phone: "0817-732-551"   },
+      { img: "asset/8.jpg",  role: "Seksi Keamanan",            name: "ROBBY",           block: "Blok C No.10",    phone: "0812-1001-0379" },
+      { img: "asset/9.jpg",  role: "Seksi Perlengkapan",        name: "ADE",             block: "Blok C3 No.20",   phone: "0812-2729-7959" },
+      { img: "asset/10.jpg", role: "Seksi Perlengkapan 2",      name: "MADDENUANG",      block: "Blok C No.27",    phone: "0878-0878-5774" },
+      { img: "asset/11.jpg", role: "Seksi Humas & Olahraga",    name: "DESTRIYANDA",     block: "Blok C5 No.6",    phone: "0813-8470-9977" },
+      { img: "asset/12.jpg", role: "Seksi Kerohanian (Muslim)", name: "OKTA Y KUSUMA",   block: "Blok C",          phone: "0811-910-632"   },
+      { img: "asset/13.jpg", role: "Seksi Kerohanian (Nasrani)",name: "TIMBUL",          block: "Blok C",          phone: "0813-1022-2891" },
+      { img: "asset/14.jpg", role: "Seksi Web & Tech",          name: "EKO S KURNIAWAN", block: "Blok C6 No.01",   phone: "0818-650-250"   },
+      { img: "asset/15.jpg", role: "Penasihat RT",              name: "ZULKIFLI",        block: "Blok C",          phone: "0818-157-509"   },
+    ];
+
+    // ============== MASKING HELPERS ==============
+    function maskBlock(raw){
+      // "Blok C10 No.19" -> "Blok C10 No.**"
+      if(!raw) return "";
+      return raw.replace(/No\.\s*\d+/i, "No.**");
+    }
+
+    function maskPhone(raw){
+      // "0813-8574-8035" -> "0813-***-8035"
+      if(!raw) return "";
+      const digits = raw.replace(/\D/g, "");
+      if(digits.length < 7) return raw;
+      const head = digits.slice(0, 4);
+      const tail = digits.slice(-4);
+      return `${head}-***-${tail}`;
+    }
+
+    // ============== RENDER ==============
+    const grid = document.getElementById("grid");
+
+    PENGURUS.forEach(p => {
+      const card = document.createElement("article");
+      card.className = "pCard";
+
+      const photo = document.createElement("div");
+      photo.className = "pPhoto";
+
+      const img = document.createElement("img");
+      img.src = p.img;
+      img.alt = `Foto ${p.role} - ${p.name}`;
+      img.loading = "lazy";
+      photo.appendChild(img);
+
+      const body = document.createElement("div");
+      body.className = "pBody";
+
+      const role = document.createElement("div");
+      role.className = "pRole";
+      role.textContent = p.role;
+
+      const name = document.createElement("div");
+      name.className = "pName";
+      name.textContent = p.name;
+
+      const meta = document.createElement("p");
+      meta.className = "pMeta";
+      meta.innerHTML = `
+        <span>${maskBlock(p.block)}</span>
+        <span> / </span>
+        <span>${maskPhone(p.phone)}</span>
+      `;
+
+      body.appendChild(role);
+      body.appendChild(name);
+      body.appendChild(meta);
+
+      card.appendChild(photo);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+  </script>
 </body>
 </html>
