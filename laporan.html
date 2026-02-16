@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Laporan Keuangan RT - RT03 CICIT</title>
+
+  <!-- Open Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="RT03 CICIT">
+        <div class="brand__logo">RT03</div>
+        <div class="brand__text">
+          <div class="brand__title">RT03 CICIT</div>
+          <div class="brand__subtitle">Portal Informasi Warga</div>
+        </div>
+      </a>
+
+      <button class="navbtn" id="navbtn" aria-label="Buka menu">☰</button>
+
+      <nav class="nav" id="nav">
+        <a href="index.html#beranda">Beranda</a>
+        <a href="index.html#administrasi">Administrasi RT</a>
+        <a class="active" href="laporan.html">Laporan Keuangan RT</a>
+        <a href="index.html#pengumuman">Pengumuman</a>
+        <a href="index.html#umkm">UMKM</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page__title">Laporan Keuangan RT</h1>
+        <p class="page__desc">
+          Pilih bulan untuk melihat PDF laporan. Kamu juga bisa membuka file di tab baru atau mengunduhnya.
+        </p>
+
+        <div class="divider"></div>
+
+        <!-- Month selector -->
+        <div class="reportBar">
+          <div class="reportBar__label">Pilih bulan:</div>
+          <div class="reportBar__buttons" id="reportButtons">
+            <!-- buttons injected by JS -->
+          </div>
+        </div>
+
+        <div class="reportMeta" id="reportMeta">
+          <div><strong>Terpilih:</strong> <span id="reportTitle">-</span></div>
+          <div class="reportMeta__actions">
+            <a class="btn btn-primary" id="openPdf" href="#" target="_blank" rel="noopener">Open PDF</a>
+            <a class="btn" id="downloadPdf" href="#" download>Download</a>
+          </div>
+        </div>
+
+        <!-- PDF Viewer -->
+        <div class="pdfWrap">
+          <iframe
+            id="pdfFrame"
+            class="pdfFrame"
+            src=""
+            title="Laporan Keuangan RT"
+          ></iframe>
+
+          <div class="pdfFallback">
+            <div class="pdfFallback__title">Jika PDF tidak tampil di perangkat kamu</div>
+            <div class="pdfFallback__desc">
+              Beberapa browser mobile membatasi tampilan PDF di dalam halaman. Gunakan tombol <strong>Open PDF</strong> untuk membuka di tab baru.
+            </div>
+          </div>
+        </div>
+
+        <div class="divider" style="margin-top:22px;"></div>
+
+        <div class="ctaRow">
+          <a class="btn" href="index.html">Kembali ke Beranda</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> RT03 CICIT • Laporan Keuangan</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Page-specific script (inline) -->
+  <script>
+    // List laporan (sesuaikan nama file jika berubah)
+    const reports = [
+      { key: "Jun25", label: "Juni 2025", file: "asset/Jun25.pdf" },
+      { key: "Jul25", label: "Juli 2025", file: "asset/Jul25.pdf" },
+      { key: "Aug25", label: "Agustus 2025", file: "asset/Aug25.pdf" },
+      { key: "Sep25", label: "September 2025", file: "asset/Sep25.pdf" },
+      { key: "Oct25", label: "Oktober 2025", file: "asset/Oct25.pdf" },
+      { key: "Nov25", label: "November 2025", file: "asset/Nov25.pdf" },
+      { key: "Dec25", label: "Desember 2025", file: "asset/Dec25.pdf" },
+    ];
+
+    const qs = new URLSearchParams(location.search);
+    const defaultKey = qs.get("m") || "Dec25"; // default tampilkan Des 2025
+
+    const btnWrap = document.getElementById("reportButtons");
+    const titleEl = document.getElementById("reportTitle");
+    const frameEl = document.getElementById("pdfFrame");
+    const openEl = document.getElementById("openPdf");
+    const dlEl = document.getElementById("downloadPdf");
+
+    function setActive(key){
+      const found = reports.find(r => r.key === key) || reports[reports.length - 1];
+
+      // Update meta
+      titleEl.textContent = found.label;
+
+      // Embed PDF: tambahkan #view=FitH agar lebih enak dibaca (opsional)
+      frameEl.src = `${found.file}#view=FitH`;
+
+      // Open / Download
+      openEl.href = found.file;
+      dlEl.href = found.file;
+      dlEl.setAttribute("download", `${found.key}.pdf`);
+
+      // Active state buttons
+      [...btnWrap.querySelectorAll("button")].forEach(b => {
+        b.classList.toggle("chip--active", b.dataset.key === found.key);
+      });
+
+      // Update URL tanpa reload (biar shareable)
+      const next = new URL(location.href);
+      next.searchParams.set("m", found.key);
+      history.replaceState({}, "", next);
+    }
+
+    // Build buttons
+    reports.forEach(r => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "chip";
+      b.textContent = r.label;
+      b.dataset.key = r.key;
+      b.addEventListener("click", () => setActive(r.key));
+      btnWrap.appendChild(b);
+    });
+
+    // Init
+    setActive(defaultKey);
+  </script>
+</body>
+</html>
