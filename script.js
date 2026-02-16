@@ -92,10 +92,13 @@ if (navBtn && nav) {
   const lat = -6.35;
   const lon = 106.88;
 
+  // Catatan:
+  // - Jangan minta "time" sebagai current variable; current.time sudah tersedia.
+  // - Gunakan parameter yang stabil.
   const url =
     `https://api.open-meteo.com/v1/forecast` +
     `?latitude=${lat}&longitude=${lon}` +
-    `&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,time` +
+    `&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code` +
     `&daily=temperature_2m_max,temperature_2m_min` +
     `&timezone=Asia%2FJakarta`;
 
@@ -113,15 +116,12 @@ if (navBtn && nav) {
   function fmtWIB(iso){
     // iso contoh: "2026-02-16T14:05"
     if (!iso) return "";
-    const d = new Date(iso);
-    // Karena timezone sudah Asia/Jakarta dari API, parsing ini biasanya aman.
-    // Tapi untuk jaga-jaga, format hanya jam-menit.
-    const hh = String(d.getHours()).padStart(2, "0");
-    const mm = String(d.getMinutes()).padStart(2, "0");
-    return `${hh}:${mm} WIB`;
+    const parts = iso.split("T");
+    if (!parts[1]) return "";
+    return `${parts[1].slice(0,5)} WIB`;
   }
 
-  fetch(url)
+  fetch(url, { cache: "no-store" })
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
     .then(data => {
       const cur = data.current;
@@ -148,4 +148,5 @@ if (navBtn && nav) {
       if (timeEl) timeEl.textContent = "";
     });
 })();
+
 
