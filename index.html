@@ -180,23 +180,30 @@
 
     <!-- PENGUMUMAN -->
 <section id="pengumuman" class="section">
-  <h2>Pengumuman</h2>
-  <p class="muted">Bagian ini untuk info terbaru RT03. Kamu bisa update isi pengumuman kapan saja.</p>
+  <div class="container">
+    <h2 class="section__title">Pengumuman</h2>
+    <p class="section__desc">Bagian ini untuk info terbaru RT03. Kamu bisa update isi pengumuman kapan saja.</p>
 
-  <div class="cardsGrid">
-    <article class="card">
-      <h3>Contoh Pengumuman #1</h3>
-      <div class="cardMeta">Terakhir update: 17 Feb 2026</div>
-      <p>Ganti teks ini dengan pengumuman terbaru (mis. jadwal kerja bakti, info keamanan, agenda warga, dll).</p>
-    </article>
+    <div class="triGrid">
+      <div class="panel">
+        <h3>Contoh Pengumuman #1</h3>
+        <p class="panelMeta">Terakhir update: 17 Feb 2026</p>
+        <p class="muted">Ganti teks ini dengan pengumuman terbaru (mis. jadwal kerja bakti, info keamanan, agenda warga, dll).</p>
+      </div>
 
-    <article class="card">
-      <h3>Contoh Pengumuman #2</h3>
-      <div class="cardMeta">Catatan</div>
-      <p>Jika ada pengumuman yang butuh dokumen, upload ke folder <code>/asset</code> lalu link-kan.</p>
-    </article>
+      <div class="panel">
+        <h3>Contoh Pengumuman #2</h3>
+        <p class="panelMeta">Catatan</p>
+        <p class="muted">Jika ada pengumuman yang butuh dokumen, upload ke folder <code>/asset</code> lalu link-kan.</p>
+      </div>
 
-    <!-- kalau mau tambah pengumuman lagi, copy <article class="card"> ... -->
+      <!-- OPTIONAL: panel ketiga kalau mau biar penuh 3 kolom -->
+      <div class="panel">
+        <h3>Info Keamanan</h3>
+        <p class="panelMeta">Update sesuai kebutuhan</p>
+        <p class="muted">Contoh: jam patroli, kontak pos security, atau info tamu.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -204,29 +211,42 @@
 
     <!-- UMKM -->
 <section id="umkm" class="section">
-  <h2>UMKM</h2>
-  <p class="muted">Katalog UMKM warga (ringkas). Untuk pendaftaran UMKM, gunakan form pada menu Administrasi RT.</p>
+  <div class="container">
+    <h2 class="section__title">UMKM</h2>
+    <p class="section__desc">Katalog UMKM warga (ringkas). Untuk pendaftaran UMKM, gunakan form pada menu Administrasi RT.</p>
 
-  <div class="cardsGrid">
-    <article class="card">
-      <h3>Rumah Bekam Sabila</h3>
-      <div class="cardMeta">Jasa Kesehatan / Terapi</div>
-      <a class="btn btn-primary" target="_blank"
-         href="https://wa.me/6281525930904?text=Halo%20Rumah%20Bekam%20Sabila,%20saya%20lihat%20info%20dari%20Portal%20RT03%20CICIT.">
-        Chat via WhatsApp
-      </a>
-    </article>
+    <div class="triGrid">
+      <div class="panel">
+        <h3>Rumah Bekam Sabila</h3>
+        <p class="panelMeta">Jasa Kesehatan / Terapi</p>
+        <div class="panelActions">
+          <a class="btn btn-primary" target="_blank"
+             href="https://wa.me/6281525930904?text=Halo%20Rumah%20Bekam%20Sabila,%20saya%20lihat%20info%20dari%20Portal%20RT03%20CICIT.">
+            Chat WA
+          </a>
+        </div>
+      </div>
 
-    <article class="card">
-      <h3>CARIHUNIAN.COM</h3>
-      <div class="cardMeta">Jasa Properti & Renovasi</div>
-      <a class="btn btn-primary" target="_blank"
-         href="https://wa.me/6281387452281?text=Halo%20CARIHUNIAN.COM,%20saya%20lihat%20info%20dari%20Portal%20RT03%20CICIT.">
-        Chat via WhatsApp
-      </a>
-    </article>
+      <div class="panel">
+        <h3>CARIHUNIAN.COM</h3>
+        <p class="panelMeta">Properti / Renovasi</p>
+        <div class="panelActions">
+          <a class="btn btn-primary" target="_blank"
+             href="https://wa.me/6281387452281?text=Halo%20CARIHUNIAN.COM,%20saya%20lihat%20info%20dari%20Portal%20RT03%20CICIT.">
+            Chat WA
+          </a>
+        </div>
+      </div>
 
-    <!-- lanjutkan UMKM lainnya dengan pola yang sama -->
+      <div class="panel">
+        <h3>Lihat Semua UMKM</h3>
+        <p class="panelMeta">Halaman khusus UMKM</p>
+        <p class="muted">Klik untuk membuka daftar lengkap UMKM warga.</p>
+        <div class="panelActions">
+          <a class="btn" href="umkm.html">Buka UMKM</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
   </main>
