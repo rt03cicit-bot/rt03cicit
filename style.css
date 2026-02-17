@@ -13,6 +13,9 @@
   /* brand tetap biru (jangan diubah supaya tombol tidak rusak) */
   --brand: #2563EB;
   --brand-2: #1D4ED8;
+
+  --primary: var(--brand);
+  --primaryHover: var(--brand-2);
 }
 
 *{ box-sizing: border-box; }
