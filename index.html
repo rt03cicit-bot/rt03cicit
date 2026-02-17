@@ -179,60 +179,56 @@
 
 
     <!-- PENGUMUMAN -->
-    <section id="pengumuman" class="section">
-      <div class="container">
-        <h2 class="section__title">Pengumuman</h2>
-        <p class="section__desc">
-          Bagian ini untuk info terbaru RT03. Kamu bisa update isi pengumuman kapan saja.
-        </p>
+<section id="pengumuman" class="section">
+  <h2>Pengumuman</h2>
+  <p class="muted">Bagian ini untuk info terbaru RT03. Kamu bisa update isi pengumuman kapan saja.</p>
 
-        <div class="simpleList">
-          <div class="simpleItem">
-            <div class="simpleItem__title">Contoh Pengumuman #1</div>
-            <div class="simpleItem__meta">Terakhir update: <span id="lastUpdate">-</span></div>
-            <div class="simpleItem__body">
-              Ganti teks ini dengan pengumuman terbaru (mis. jadwal kerja bakti, info keamanan, agenda warga, dll).
-            </div>
-          </div>
+  <div class="cardsGrid">
+    <article class="card">
+      <h3>Contoh Pengumuman #1</h3>
+      <div class="cardMeta">Terakhir update: 17 Feb 2026</div>
+      <p>Ganti teks ini dengan pengumuman terbaru (mis. jadwal kerja bakti, info keamanan, agenda warga, dll).</p>
+    </article>
 
-          <div class="simpleItem">
-            <div class="simpleItem__title">Contoh Pengumuman #2</div>
-            <div class="simpleItem__meta">Catatan</div>
-            <div class="simpleItem__body">
-              Jika ada pengumuman yang butuh dokumen, upload ke folder <code>/asset</code> lalu link-kan.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <article class="card">
+      <h3>Contoh Pengumuman #2</h3>
+      <div class="cardMeta">Catatan</div>
+      <p>Jika ada pengumuman yang butuh dokumen, upload ke folder <code>/asset</code> lalu link-kan.</p>
+    </article>
+
+    <!-- kalau mau tambah pengumuman lagi, copy <article class="card"> ... -->
+  </div>
+</section>
 
     <div class="divider"></div>
 
     <!-- UMKM -->
-    <section id="umkm" class="section">
-      <div class="container">
-        <h2 class="section__title">UMKM</h2>
-        <p class="section__desc">
-          Katalog UMKM warga (ringkas). Untuk pendaftaran UMKM, gunakan form pada menu Administrasi RT.
-        </p>
+<section id="umkm" class="section">
+  <h2>UMKM</h2>
+  <p class="muted">Katalog UMKM warga (ringkas). Untuk pendaftaran UMKM, gunakan form pada menu Administrasi RT.</p>
 
-        <div class="simpleList">
-          <div class="simpleItem">
-            <div class="simpleItem__title">Contoh UMKM: Nama Usaha</div>
-            <div class="simpleItem__meta">Kategori: Makanan / Jasa / Retail</div>
-            <div class="simpleItem__body">
-              Deskripsi singkat UMKM. Tambahkan nomor WA / IG bila memang ingin dipublish.
-            </div>
-          </div>
-        </div>
+  <div class="cardsGrid">
+    <article class="card">
+      <h3>Rumah Bekam Sabila</h3>
+      <div class="cardMeta">Jasa Kesehatan / Terapi</div>
+      <a class="btn btn-primary" target="_blank"
+         href="https://wa.me/6281525930904?text=Halo%20Rumah%20Bekam%20Sabila,%20saya%20lihat%20info%20dari%20Portal%20RT03%20CICIT.">
+        Chat via WhatsApp
+      </a>
+    </article>
 
-        <div class="ctaRow">
-          <a class="btn btn-primary" href="https://forms.gle/5etn8vqh6cRStWY3A" target="_blank" rel="noopener">
-            Daftarkan UMKM Warga
-          </a>
-        </div>
-      </div>
-    </section>
+    <article class="card">
+      <h3>CARIHUNIAN.COM</h3>
+      <div class="cardMeta">Jasa Properti & Renovasi</div>
+      <a class="btn btn-primary" target="_blank"
+         href="https://wa.me/6281387452281?text=Halo%20CARIHUNIAN.COM,%20saya%20lihat%20info%20dari%20Portal%20RT03%20CICIT.">
+        Chat via WhatsApp
+      </a>
+    </article>
+
+    <!-- lanjutkan UMKM lainnya dengan pola yang sama -->
+  </div>
+</section>
   </main>
 
   <script src="script.js?v=3"></script>
