@@ -32,7 +32,7 @@ if (navBtn && nav) {
 
   let index = 0;
   let timer = null;
-  const intervalMs = 3000;
+  const intervalMs = 8000;
 
   // build dots (reset dulu biar gak dobel)
   dotsWrap.innerHTML = "";
